@@ -29,10 +29,8 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-name: Example workflow for Maven using Snyk
-on: push
-jobs:
-  security:
+  snyk:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
